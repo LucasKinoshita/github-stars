@@ -8,7 +8,7 @@ import { GET_STARRED_REPOSITORIES_QUERY } from "../lib/queries/getStarredReposit
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { StarBorder } from "@mui/icons-material";
+import StarBorder from "@mui/icons-material/StarBorder";
 
 type CardRepositoryProps = {
   id: string;

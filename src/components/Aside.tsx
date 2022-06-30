@@ -26,6 +26,7 @@ type User = {
 export const Aside = () => {
   const { getToken } = useContext(AuthContext);
   const { username } = useParams<{ username: string }>();
+
   const { data, loading, error } = useQuery<User>(GET_USER_SEARCH_QUERY, {
     variables: {
       user: username,

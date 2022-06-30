@@ -14,8 +14,9 @@ export const InputToken = () => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    const hasToken = token !== "";
 
-    if (token !== "") {
+    if (hasToken) {
       saveToken(token);
       navigate("/");
     }

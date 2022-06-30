@@ -27,6 +27,7 @@ type StarredRepository = {
 export const Repositories = () => {
   const { getToken } = useContext(AuthContext);
   const { username } = useParams<{ username: string }>();
+
   const { data, loading, error } = useQuery<StarredRepository>(
     GET_STARRED_REPOSITORIES_QUERY,
     {

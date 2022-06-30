@@ -23,6 +23,8 @@ export type User = {
 export const SearchRepositories = () => {
   const { getToken } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+
   const { data, loading } = useQuery<User>(GET_USER, {
     context: {
       headers: {
@@ -30,7 +32,6 @@ export const SearchRepositories = () => {
       },
     },
   });
-  const [username, setUsername] = useState("");
 
   function handleUsername(event: FormEvent) {
     event.preventDefault();
