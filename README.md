@@ -1,11 +1,19 @@
 # Github stars
 
-### 🔧 Instalação
+### 🔧 Installation
 
 How to install project dependencies:
 
 ```
 yarn install
+```
+
+### Start project
+
+How run project
+
+```
+yarn dev
 ```
 
 ## 🛠️ Built with:
