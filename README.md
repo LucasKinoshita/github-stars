@@ -1,6 +1,6 @@
 # Github stars
 
-### 🔧 Installation
+### 📦 Installation
 
 How to install project dependencies:
 
@@ -8,7 +8,7 @@ How to install project dependencies:
 yarn install
 ```
 
-### Start project
+### 🚀 Start project
 
 How run project
 
