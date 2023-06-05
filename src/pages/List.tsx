@@ -10,6 +10,7 @@ import { useQuery } from "@apollo/client";
 import { GET_USER_SEARCH_QUERY } from "../lib/queries/getUserSearch";
 import { User } from "../types/User";
 import { CircularProgress } from "@mui/material";
+import { Loading } from "../components/Loading";
 
 export type UserProps = {
   user: User
@@ -34,7 +35,9 @@ export const List = () => {
 
   return (
     <>
-      {hasToken ? (
+      {!hasToken && <InputToken />}
+
+      {hasToken && (
         <Box
           maxWidth="1134px"
           margin="0 auto"
@@ -44,28 +47,15 @@ export const List = () => {
         >
           <SearchRepositories />
 
-        {loadingUser ? (
-           <Box
-           sx={{
-             width: "100%",
-             display: "flex",
-             justifyContent: "center",
-             alignItems: "center",
-           }}
-         >
-           <CircularProgress />
-         </Box>
-        )
-        : (
-           <Box display="flex" marginTop="64px">
+        {!!loadingUser && (
+          <Box display="flex" marginTop="64px">
             <Aside user={data!.user}  />
             <Repositories />
           </Box>
-        )
-      }
+        )}
+
+        {loadingUser && <Loading />}
         </Box>
-      ) : (
-        <InputToken />
       )}
     </>
   );
