@@ -1,8 +1,8 @@
 import { FormEvent, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
+import { AuthContext } from "../../contexts/auth";
 import { useQuery } from "@apollo/client";
-import { GET_USER } from "../lib/queries/getUser";
+import { GET_USER } from "../../lib/queries/getUser";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
@@ -60,13 +60,13 @@ export const SearchRepositories = () => {
       <Box width="100%">
         <form onSubmit={handleUsername}>
           <FormControl sx={{ flex: 1, width: "100%" }} variant="standard">
-            <InputLabel htmlFor="username-field">github username...</InputLabel>
+            <InputLabel htmlFor="username-field">username...</InputLabel>
             <Input
               id="username-field"
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton edge="end" type="submit">
-                    <SearchIcon />
+                    <SearchIcon aria-label="search username" />
                   </IconButton>
                 </InputAdornment>
               }

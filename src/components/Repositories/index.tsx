@@ -1,25 +1,17 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
 import { useQuery } from "@apollo/client";
-import { GET_STARRED_REPOSITORIES_QUERY } from "../lib/queries/getStarredRepositories";
-import { CardRepository } from "./CardRepository";
-import { NotFoundIcon } from "./NotFoundIcon";
+import { AuthContext } from "../../contexts/auth";
+import { GET_STARRED_REPOSITORIES_QUERY } from "../../lib/queries/getStarredRepositories";
+import { CardRepository } from "../CardRepository";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import { StarredRepository } from "../../types/Repository";
 
-type StarredRepository = {
+type StarredRepositoryProps = {
   user: {
     starredRepositories: {
-      nodes: [
-        {
-          id: string;
-          description: string;
-          name: string;
-          stargazerCount: number;
-          viewerHasStarred: boolean;
-        }
-      ];
+      nodes: StarredRepository[]
     };
   };
 };
@@ -28,7 +20,7 @@ export const Repositories = () => {
   const { getToken } = useContext(AuthContext);
   const { username } = useParams<{ username: string }>();
 
-  const { data, loading, error } = useQuery<StarredRepository>(
+  const { data, loading } = useQuery<StarredRepositoryProps>(
     GET_STARRED_REPOSITORIES_QUERY,
     {
       variables: {
@@ -41,6 +33,8 @@ export const Repositories = () => {
       },
     }
   );
+
+  const hasRepositories = data?.user.starredRepositories.nodes.length === 0
 
   if (loading) {
     return (
@@ -57,7 +51,7 @@ export const Repositories = () => {
     );
   }
 
-  if (error) {
+  if (hasRepositories) {
     return (
       <Box
         sx={{
@@ -68,7 +62,7 @@ export const Repositories = () => {
           height: "50vh",
         }}
       >
-        <NotFoundIcon />
+        <p>No repositories.</p>
       </Box>
     );
   }

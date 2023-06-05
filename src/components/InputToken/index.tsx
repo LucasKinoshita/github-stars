@@ -1,6 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
+import { AuthContext } from "../../contexts/auth";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -39,7 +39,7 @@ export const InputToken = () => {
           onSubmit={handleSubmit}
         >
           <TextField
-            label="insira seu token aqui"
+            label="insert your token here"
             sx={{ width: "500px" }}
             value={token}
             onChange={(e) => setToken(e.target.value)}
@@ -51,12 +51,12 @@ export const InputToken = () => {
         </form>
 
         <Typography sx={{ marginTop: "20px" }}>
-          Não sabe como gerar o token?{" "}
+          Don't know how to generate the token?{" "}
           <a
             href="https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
             target="_blank"
-          >
-            acessar documentação
+          >          
+            access documentation
           </a>
         </Typography>
       </Box>

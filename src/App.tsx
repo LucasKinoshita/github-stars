@@ -1,6 +1,6 @@
-import { CssBaseline } from "@mui/material";
-import { AuthProvider } from "./contexts/auth";
 import { Router } from "./Router";
+import { AuthProvider } from "./contexts/auth";
+import { CssBaseline } from "@mui/material";
 
 const App = () => {
   return (

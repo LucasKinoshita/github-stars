@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
+import { AuthContext } from "../../contexts/auth";
 import { useMutation } from "@apollo/client";
-import { REMOVE_STAR_REPOSITORY_MUTATION } from "../lib/mutations/removeStarRepository";
-import { STAR_REPOSITORY_MUTATION } from "../lib/mutations/starRepository";
-import { GET_STARRED_REPOSITORIES_QUERY } from "../lib/queries/getStarredRepositories";
+import { REMOVE_STAR_REPOSITORY_MUTATION } from "../../lib/mutations/removeStarRepository";
+import { STAR_REPOSITORY_MUTATION } from "../../lib/mutations/starRepository";
+import { GET_STARRED_REPOSITORIES_QUERY } from "../../lib/queries/getStarredRepositories";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StarBorder from "@mui/icons-material/StarBorder";
+import { RepositoryContext } from "../../contexts/repository";
 
 type CardRepositoryProps = {
   id: string;
@@ -92,6 +93,7 @@ export const CardRepository = ({
 
       {viewerHasStarred ? (
         <Button
+          aria-label="unstar repository"
           sx={{ textTransform: "lowercase", width: "90px" }}
           variant="contained"
           onClick={async () =>
@@ -102,6 +104,7 @@ export const CardRepository = ({
         </Button>
       ) : (
         <Button
+          aria-label="star repository"
           sx={{ textTransform: "lowercase", width: "90px" }}
           variant="outlined"
           onClick={async () => await starRepository({ variables: { id } })}

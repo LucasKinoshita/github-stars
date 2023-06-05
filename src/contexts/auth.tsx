@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
-interface AuthData {
+interface AuthDataProps {
   token: string | null;
   hasToken: string | null;
   saveToken: (token: string) => void;
@@ -11,7 +11,7 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export const AuthContext = createContext({} as AuthData);
+export const AuthContext = createContext({} as AuthDataProps);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [token, setToken] = useState<string | null>(null);
