@@ -1,8 +1,10 @@
 # Github stars
 
+Simple application to star and unstar repositories.
+
 ### 📦 Installation
 
-How to install project dependencies:
+How to install dependencies:
 
 ```
 yarn install
@@ -14,6 +16,12 @@ How run project
 
 ```
 yarn dev
+```
+
+How run tests
+
+```
+yarn test
 ```
 
 ## 🛠️ Built with:
