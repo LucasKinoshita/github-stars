@@ -1,6 +1,6 @@
 # Github stars
 
-Simple application to star and unstar repositories.
+Simple application to star repositories.
 
 ### 📦 Installation
 
